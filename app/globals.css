@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-ivory-100 text-[#2D2A28] antialiased;
+    font-feature-settings: "palt" 1;
+  }
+
+  ::selection {
+    @apply bg-sage-200/50 text-sage-600;
+  }
+
+  ::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+
+  input,
+  textarea,
+  button {
+    font-family: inherit;
+  }
+}
+
+@layer utilities {
+  .scrollbar-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer components {
+  .nav-glass {
+    @apply bg-white/80 backdrop-blur-lg border border-white/20 shadow-card;
+  }
+
+  .hero-gradient {
+    background: linear-gradient(
+      160deg,
+      #F3F7F5 0%,
+      #F8F4F2 30%,
+      #FDFCFA 65%,
+      #F0ECE7 100%
+    );
+  }
+
+  .surface-card {
+    @apply bg-white border border-ivory-200/60 rounded-xl;
+  }
+
+  .surface-elevated {
+    @apply bg-white border border-ivory-200/70 shadow-card rounded-xl;
+  }
+}
+@layer components {
+  .shimmer-card {
+    position: relative;
+    overflow: hidden;
+  }
+  .shimmer-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.2) 50%, transparent 60%);
+    background-size: 200% 100%;
+    animation: shimmer-slide 4s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 1;
+  }
+  .sheen-button {
+    position: relative;
+    overflow: hidden;
+  }
+  .sheen-button::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.15) 50%, transparent 100%);
+    background-size: 200% 100%;
+    animation: shimmer-slide 3s ease-in-out infinite;
+    pointer-events: none;
+  }
+  .premium-glow {
+    position: relative;
+  }
+  .premium-glow::after {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    background: linear-gradient(135deg, rgba(196,165,90,0.12), transparent 50%);
+    pointer-events: none;
+  }
+}
+
+@keyframes shimmer-slide {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
