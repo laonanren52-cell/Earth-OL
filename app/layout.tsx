@@ -10,8 +10,22 @@ const notoSans = Noto_Sans_SC({
 });
 
 export const metadata: Metadata = {
-  title: "人生打卡 - 记录你的每一次成长",
-  description: "像玩游戏一样解锁人生小成就，AI 记录你的每一次成长。",
+  title: "人生打卡",
+  description: "把生活小事做成成就系统的 AI 打卡 App",
+  manifest: "/manifest.json",
+  icons: {
+    apple: "/icons/icon-192.png",
+  },
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "人生打卡",
+  },
+  other: {
+    "apple-mobile-web-app-capable": "yes",
+    "apple-mobile-web-app-title": "人生打卡",
+    "mobile-web-app-capable": "yes",
+  },
 };
 
 export const viewport: Viewport = {
@@ -19,20 +33,29 @@ export const viewport: Viewport = {
   initialScale: 1,
   maximumScale: 1,
   userScalable: false,
-  themeColor: "#F7F5F2",
+  themeColor: "#7CAB9A",
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="zh-CN">
+      <head>
+        <link rel="manifest" href="/manifest.json" />
+        <link rel="apple-touch-icon" href="/icons/icon-192.png" />
+      </head>
       <body className={"min-h-[100dvh] " + notoSans.className}>
-        <main className="mx-auto min-h-[100dvh] max-w-md bg-ivory-100 pb-20">
+        <main className="mx-auto min-h-[100dvh] max-w-md bg-ivory-100 pb-safe">
           {children}
         </main>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              if ("serviceWorker" in navigator) {
+                navigator.serviceWorker.register("/sw.js").catch(() => {});
+              }
+            `,
+          }}
+        />
       </body>
     </html>
   );

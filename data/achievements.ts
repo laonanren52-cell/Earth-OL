@@ -146,6 +146,7 @@ export const categories: { label: string; value: string }[] = [
   { label: "健康篇", value: "健康篇" },
   { label: "亲情篇", value: "亲情篇" },
   { label: "校园篇", value: "校园篇" },
+  { label: "其他", value: "其他" },
 ];
 
 export function getRarityColor(rarity: string): string {
@@ -164,6 +165,7 @@ export function getRarityBg(rarity: string): string {
     case "稀有": return "bg-sage-50/80 text-sage-500";
     case "史诗": return "bg-amethyst-50/80 text-amethyst-500";
     case "传说": return "bg-gold-50/80 text-gold-500";
+    case "自定义": case "特别记录": return "bg-sky-50/80 text-sky-600";
     default: return "bg-gray-50/80 text-gray-600";
   }
 }

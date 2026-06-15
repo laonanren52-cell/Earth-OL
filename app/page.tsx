@@ -2,13 +2,14 @@
 
 import { useState, useEffect, useCallback } from "react";
 import { achievements } from "@/data/achievements";
-import { getCompletedCount, getStreakDays, getCompletedAchievementIds, migrateAndCleanStorage } from "@/lib/storage";
+import { getCompletedCount, getStreakDays, getCompletedAchievementIds } from "@/lib/storage";
 import { getDailyRecommendations, DailyTask } from "@/data/dailyTasks";
 import { Achievement } from "@/types/achievement";
 import AchievementCard from "@/components/AchievementCard";
 import CheckInDialog from "@/components/CheckInDialog";
+import CustomCheckInDialog from "@/components/CustomCheckInDialog";
 import BottomNav from "@/components/BottomNav";
-import { Sparkles, RefreshCw, MessageCircleHeart, ArrowRight } from "lucide-react";
+import { Sparkles, RefreshCw, MessageCircleHeart, ArrowRight, Feather } from "lucide-react";
 
 function getLevel(count: number) {
   if (count >= 80) return { level: 6, title: "人生大师" };
@@ -35,6 +36,7 @@ export default function HomePage() {
   const [completedIds, setCompletedIds] = useState<Set<string>>(new Set());
   const [selectedAchievement, setSelectedAchievement] = useState<Achievement | null>(null);
   const [dialogOpen, setDialogOpen] = useState(false);
+  const [customDialogOpen, setCustomDialogOpen] = useState(false);
   const [streak, setStreak] = useState(0);
   const [completedCount, setCompletedCount] = useState(0);
   const [dailyTask, setDailyTask] = useState<DailyTask | null>(null);
@@ -50,7 +52,7 @@ export default function HomePage() {
     setFeatured(pickFeatured(achievements, ids, 3));
   }, []);
 
-  useEffect(() => { migrateAndCleanStorage(); refreshAll(); }, [refreshAll]);
+  useEffect(() => { refreshAll(); }, [refreshAll]);
 
   const levelInfo = getLevel(completedCount);
   const totalCount = achievements.length;
@@ -59,21 +61,13 @@ export default function HomePage() {
   const offset = circumference * (1 - progress);
   const wisdom = WISDOM_TEXT[completedCount % WISDOM_TEXT.length];
 
-  const handleOpenCheckIn = (a: Achievement) => {
-    setSelectedAchievement(a);
-    setDialogOpen(true);
-  };
-
+  const handleOpenCheckIn = (a: Achievement) => { setSelectedAchievement(a); setDialogOpen(true); };
   const handleTaskCheckIn = () => {
     if (!dailyTask) return;
     const a = achievements.find((x) => x.id === dailyTask.achievementId);
     if (a) handleOpenCheckIn(a);
   };
-
-  const handleRefreshTask = () => {
-    const tasks = getDailyRecommendations(1);
-    if (tasks.length > 0) setDailyTask(tasks[0]);
-  };
+  const handleRefreshTask = () => { const tasks = getDailyRecommendations(1); if (tasks.length > 0) setDailyTask(tasks[0]); };
 
   return (
     <>
@@ -84,11 +78,8 @@ export default function HomePage() {
             <h1 className="text-[24px] font-bold tracking-tight text-[#2D2A28] leading-tight">人生打卡</h1>
             <p className="text-[13px] text-ivory-400 mt-0.5">今天也在认真生活</p>
           </div>
-          <div className="flex items-center justify-center w-9 h-9 rounded-full bg-white/60 backdrop-blur-sm border border-white/40">
-            <Sparkles size={16} className="text-sage-400" />
-          </div>
+          <div className="flex items-center justify-center w-9 h-9 rounded-full bg-white/60 backdrop-blur-sm border border-white/40"><Sparkles size={16} className="text-sage-400" /></div>
         </div>
-
         <div className="flex items-center gap-5">
           <div className="relative w-[88px] h-[88px] shrink-0">
             <svg className="w-full h-full -rotate-90" viewBox="0 0 100 100">
@@ -108,22 +99,12 @@ export default function HomePage() {
             <p className="text-[12px] text-ivory-400 leading-relaxed">{wisdom}</p>
           </div>
         </div>
-
         <div className="flex items-center gap-6 mt-4 pt-4 border-t border-white/40">
-          <div>
-            <p className="text-[20px] font-bold text-[#2D2A28] tracking-tight">{streak}</p>
-            <p className="text-[10px] text-ivory-400 tracking-[0.04em] mt-0.5">连续打卡</p>
-          </div>
+          <div><p className="text-[20px] font-bold text-[#2D2A28] tracking-tight">{streak}</p><p className="text-[10px] text-ivory-400 tracking-[0.04em] mt-0.5">连续打卡</p></div>
           <div className="w-px h-6 bg-white/40" />
-          <div>
-            <p className="text-[20px] font-bold text-[#2D2A28] tracking-tight">{completedCount}</p>
-            <p className="text-[10px] text-ivory-400 tracking-[0.04em] mt-0.5">已解锁</p>
-          </div>
+          <div><p className="text-[20px] font-bold text-[#2D2A28] tracking-tight">{completedCount}</p><p className="text-[10px] text-ivory-400 tracking-[0.04em] mt-0.5">已解锁</p></div>
           <div className="w-px h-6 bg-white/40" />
-          <div>
-            <p className="text-[20px] font-bold text-[#2D2A28] tracking-tight">{levelInfo.level}</p>
-            <p className="text-[10px] text-ivory-400 tracking-[0.04em] mt-0.5">人生等级</p>
-          </div>
+          <div><p className="text-[20px] font-bold text-[#2D2A28] tracking-tight">{levelInfo.level}</p><p className="text-[10px] text-ivory-400 tracking-[0.04em] mt-0.5">人生等级</p></div>
         </div>
       </section>
 
@@ -132,10 +113,7 @@ export default function HomePage() {
         <section className="px-6 pt-5">
           <div className="flex items-center justify-between mb-3">
             <h2 className="text-[13px] font-semibold text-[#2D2A28] tracking-[0.03em]">今日推荐</h2>
-            <button onClick={handleRefreshTask} className="flex items-center gap-1 text-[11px] text-ivory-400 hover:text-sage-400 transition-colors">
-              <RefreshCw size={12} />
-              换一个
-            </button>
+            <button onClick={handleRefreshTask} className="flex items-center gap-1 text-[11px] text-ivory-400 hover:text-sage-400 transition-colors"><RefreshCw size={12} />换一个</button>
           </div>
           <div className="rounded-xl bg-white border border-sage-200/40 overflow-hidden">
             <div className="shimmer-card p-4">
@@ -149,24 +127,32 @@ export default function HomePage() {
                   <p className="text-[12px] text-ivory-400 mt-1 leading-relaxed">{dailyTask.description}</p>
                 </div>
               </div>
-              <button
-                onClick={handleTaskCheckIn}
-                className="mt-3 w-full rounded-lg bg-sage-400 text-white py-2.5 text-sm font-medium hover:bg-sage-500 active:scale-[0.98] transition-all duration-200 sheen-button"
-              >
-                开始打卡
-              </button>
+              <button onClick={handleTaskCheckIn} className="mt-3 w-full rounded-lg bg-sage-400 text-white py-2.5 text-sm font-medium hover:bg-sage-500 active:scale-[0.98] transition-all duration-200 sheen-button">开始打卡</button>
             </div>
           </div>
         </section>
       )}
 
-      {/* 3. AI夸夸官 prompt */}
+      {/* 3. Custom check-in entry */}
+      <section className="px-6 pt-4">
+        <button onClick={() => setCustomDialogOpen(true)}
+          className="w-full rounded-xl border border-ivory-200/60 bg-white p-3.5 flex items-center gap-3 hover:bg-ivory-50/80 hover:border-sage-300/40 transition-all duration-200 text-left">
+          <div className="shrink-0 flex items-center justify-center w-9 h-9 rounded-lg bg-gradient-to-br from-sky-50 to-sage-50 border border-sky-200/60">
+            <Feather size={16} className="text-sky-500" strokeWidth={1.5} />
+          </div>
+          <div className="flex-1">
+            <span className="text-[13px] font-semibold text-[#2D2A28]">记录我的一件小事</span>
+            <p className="text-[11px] text-ivory-400 mt-0.5">自己写一条打卡内容，AI 也会为你生成评价</p>
+          </div>
+          <ArrowRight size={16} className="text-ivory-300 shrink-0" />
+        </button>
+      </section>
+
+      {/* 4. AI夸夸官 prompt */}
       <section className="px-6 pt-4">
         <div className="rounded-xl bg-ivory-50/70 border border-ivory-200/50 p-3.5">
           <div className="flex items-start gap-2.5">
-            <div className="shrink-0 flex items-center justify-center w-8 h-8 rounded-full bg-sage-50 border border-sage-200/50 mt-0.5">
-              <MessageCircleHeart size={15} className="text-sage-400" />
-            </div>
+            <div className="shrink-0 flex items-center justify-center w-8 h-8 rounded-full bg-sage-50 border border-sage-200/50 mt-0.5"><MessageCircleHeart size={15} className="text-sage-400" /></div>
             <div>
               <span className="text-[12px] font-semibold text-sage-500">AI 夸夸官</span>
               <p className="text-[12px] text-ivory-400 mt-0.5 leading-relaxed">完成打卡后，我会根据你的真实感受写一段专属成就评价。</p>
@@ -175,35 +161,23 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 4. Featured achievements */}
+      {/* 5. Featured achievements */}
       <section className="px-6 pt-5 pb-6">
         <div className="flex items-center justify-between mb-3">
           <h2 className="text-[13px] font-semibold text-[#2D2A28] tracking-[0.03em]">精选成就</h2>
-          <a href="/achievements" className="flex items-center gap-0.5 text-[11px] text-sage-400 hover:text-sage-500 transition-colors">
-            查看全部 <ArrowRight size={12} />
-          </a>
+          <a href="/achievements" className="flex items-center gap-0.5 text-[11px] text-sage-400 hover:text-sage-500 transition-colors">查看全部 <ArrowRight size={12} /></a>
         </div>
         <div className="space-y-2.5">
           {featured.map((a) => (
-            <AchievementCard
-              key={a.id}
-              achievement={a}
-              completed={completedIds.has(a.id)}
-              onCheckIn={handleOpenCheckIn}
-            />
+            <AchievementCard key={a.id} achievement={a} completed={completedIds.has(a.id)} onCheckIn={handleOpenCheckIn} />
           ))}
         </div>
       </section>
 
       <BottomNav />
 
-      <CheckInDialog
-        achievement={selectedAchievement}
-        open={dialogOpen}
-        onClose={() => { setDialogOpen(false); setSelectedAchievement(null); }}
-        onSaved={refreshAll}
-        records={[]}
-      />
+      <CheckInDialog achievement={selectedAchievement} open={dialogOpen} onClose={() => { setDialogOpen(false); setSelectedAchievement(null); }} onSaved={refreshAll} records={[]} />
+      <CustomCheckInDialog open={customDialogOpen} onClose={() => setCustomDialogOpen(false)} onSaved={refreshAll} />
     </>
   );
 }

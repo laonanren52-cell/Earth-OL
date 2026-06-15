@@ -65,7 +65,7 @@ export function isAchievementCompleted(achievementId: string): boolean {
 }
 
 export function getCompletedAchievementIds(): Set<string> {
-  return new Set(getRecords().map((r) => r.achievementId));
+  return new Set(getRecords().map((r) => r.achievementId).filter(Boolean) as string[]);
 }
 
 export function getRecordByAchievementId(achievementId: string): CheckInRecord | undefined {

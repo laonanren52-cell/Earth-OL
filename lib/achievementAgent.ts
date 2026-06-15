@@ -1,4 +1,4 @@
-import { Achievement } from "@/types/achievement";
+import { Achievement, CheckInRecord } from "@/types/achievement";
 import { segments } from "@/data/praiseTemplates";
 import { cleanGeneratedText, safeFallback } from "./textGuard";
 
@@ -16,7 +16,7 @@ type AgentInput = {
   achievement: Achievement;
   userNote: string;
   emotionTag?: string;
-  records: { achievementId: string }[];
+  records: CheckInRecord[];
 };
 
 export function detectEmotionFromText(text: string): EmotionAnalysis {
