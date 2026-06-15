@@ -1,6 +1,54 @@
 import { Achievement } from "@/types/achievement";
-
 export const achievements: Achievement[] = [
+
+  // === 情绪篇 (10) ===
+  { id: "mood_01", title: "为自己的情绪起名字", category: "情绪篇", rarity: "普通", description: "你不是压制感受，而是试着认出了它。", unlockCondition: "觉察并命名自己当下的一个情绪。", icon: "Brain", tags: ["情绪", "觉察", "正念"], aiTone: "安静、温柔、肯定自我觉察" },
+  { id: "mood_02", title: "允许自己不开心", category: "情绪篇", rarity: "普通", description: "你没有假装一切都好，而是承认了此刻的状态。", unlockCondition: "在不开心时允许自己不强行振作。", icon: "Heart", tags: ["情绪", "接纳", "自愈"], aiTone: "温柔接纳" },
+  { id: "mood_03", title: "把情绪写了下来", category: "情绪篇", rarity: "稀有", description: "把说不出口的感受变成文字，本身就是一种勇敢。", unlockCondition: "认真记录和梳理自己当下的情绪。", icon: "Feather", tags: ["情绪", "表达", "整理"], aiTone: "温柔、肯定表达" },
+  { id: "mood_04", title: "情绪没有淹没今天", category: "情绪篇", rarity: "稀有", description: "即使情绪状态不好，你仍然过完了这一天。", unlockCondition: "在情绪波动中仍然完成了日常基本事项。", icon: "Shield", tags: ["情绪", "韧性", "行动"], aiTone: "温柔坚韧" },
+  { id: "mood_05", title: "没有迁怒别人", category: "情绪篇", rarity: "稀有", description: "你在情绪不佳时克制了冲动，没有让情绪伤害到别人。", unlockCondition: "在烦躁或沮丧时没有对身边人发火。", icon: "Handshake", tags: ["情绪", "克制", "成熟"], aiTone: "肯定自我控制" },
+  { id: "mood_06", title: "识别了触发源", category: "情绪篇", rarity: "普通", description: "你知道是什么引发了今天的情绪波动，这比盲目应对更有效。", unlockCondition: "分析并识别出情绪波动的触发原因。", icon: "Search", tags: ["情绪", "觉察", "成长"], aiTone: "鼓励自我理解" },
+  { id: "mood_07", title: "接受了情绪不会消失", category: "情绪篇", rarity: "稀有", description: "你没有强行删除情绪，而是学会了与它共存。", unlockCondition: "接纳一种让自己不舒服但无法立刻消除的情绪。", icon: "Leaf", tags: ["情绪", "接纳", "成熟"], aiTone: "温柔、深刻" },
+  { id: "mood_08", title: "不再责怪自己的情绪", category: "情绪篇", rarity: "史诗", description: "你不再对自己说我不该这样，而是承认感受是合理的。", unlockCondition: "停止因产生某种情绪而自我批评。", icon: "HeartHandshake", tags: ["情绪", "自愈", "接纳"], aiTone: "深刻温柔" },
+  { id: "mood_09", title: "和信任的人分享了情绪", category: "情绪篇", rarity: "普通", description: "你没有独自消化一切，而是把感受分给了值得的人。", unlockCondition: "向信任的人坦诚自己当下的情绪状态。", icon: "MessageSquare", tags: ["情绪", "交流", "信任"], aiTone: "温暖、肯定信任" },
+  { id: "mood_10", title: "今天情绪平稳度过", category: "情绪篇", rarity: "普通", description: "没有大起大落，平安无事地过完了一天。", unlockCondition: "度过一个没有剧烈情绪波动的普通日子。", icon: "Sun", tags: ["情绪", "平稳", "日常"], aiTone: "平静温和" },
+  // === 整理篇 (8) ===
+  { id: "org_01", title: "清空不再需要的文件", category: "整理篇", rarity: "普通", description: "你一次性删掉了大量不再需要的数字杂物。", unlockCondition: "清理电脑、手机或云盘中不需要的文件。", icon: "Trash2", tags: ["整理", "清爽", "简化"], aiTone: "轻松肯定" },
+  { id: "org_02", title: "衣柜空间释放", category: "整理篇", rarity: "普通", description: "你整理了衣物，让空间重新呼吸起来。", unlockCondition: "整理衣柜并处理不再穿的衣服。", icon: "Shirt", tags: ["整理", "生活", "清爽"], aiTone: "清爽治愈" },
+  { id: "org_03", title: "清理收藏夹不再吸收信息垃圾", category: "整理篇", rarity: "稀有", description: "你清点了长期囤积却从未执行的信息收藏，释放了注意力空间。", unlockCondition: "清理标记为稍后阅读却从未打开的收藏夹。", icon: "BookmarkMinus", tags: ["整理", "信息", "专注"], aiTone: "鼓励简化" },
+  { id: "org_04", title: "桌面归零", category: "整理篇", rarity: "普通", description: "你的桌面回到了一张干净的状态，不再是混乱出发点。", unlockCondition: "把书桌或工作台面彻底整理干净。", icon: "Layout", tags: ["整理", "环境", "清爽"], aiTone: "清爽肯定" },
+  { id: "org_05", title: "数字通知断舍离", category: "整理篇", rarity: "稀有", description: "你关闭了一批不必要的通知推送，收回了注意力主权。", unlockCondition: "关闭至少 3 个不重要的 App 通知权限。", icon: "BellOff", tags: ["整理", "数字", "专注"], aiTone: "鼓励专注" },
+  { id: "org_06", title: "相册回顾与清理", category: "整理篇", rarity: "普通", description: "你在翻相册的过程中顺便清理了冗余照片，也顺路看了看过去的自己。", unlockCondition: "清理手机相册中不需要的照片和截图。", icon: "Image", tags: ["整理", "回忆", "清爽"], aiTone: "轻松温暖" },
+  { id: "org_07", title: "账单与订阅整理", category: "整理篇", rarity: "稀有", description: "你查清了每月支出中有哪些不再需要的订阅在悄悄扣费。", unlockCondition: "整理并取消不再需要的订阅或自动扣费。", icon: "CreditCard", tags: ["整理", "财务", "简化"], aiTone: "鼓励理性管理" },
+  { id: "org_08", title: "给房间做一次减法", category: "整理篇", rarity: "普通", description: "你从房间里移走了一批不再需要的物品，空间恢复了空旷感。", unlockCondition: "断舍离一批长期闲置的物品。", icon: "Package", tags: ["整理", "生活", "简约"], aiTone: "清爽治愈" },
+  // === 习惯篇 (8) ===
+  { id: "habit_01", title: "启动了一个微小习惯", category: "习惯篇", rarity: "普通", description: "你没有贪心，只给自己布置了一个很小的日常任务。", unlockCondition: "开始一个每天只需 2 分钟的小习惯。", icon: "Target", tags: ["习惯", "启动", "自律"], aiTone: "鼓励小步启动" },
+  { id: "habit_02", title: "连续记录一周心情", category: "习惯篇", rarity: "稀有", description: "你连续七天记录了自己的心情，形成了有价值的情绪数据链。", unlockCondition: "连续一周每天记录自己的心情状态。", icon: "LineChart", tags: ["习惯", "情绪", "记录"], aiTone: "肯定坚持" },
+  { id: "habit_03", title: "打破习惯断档后的重启", category: "习惯篇", rarity: "稀有", description: "你在习惯断掉一天后没有放弃，而是选择了重新连上。", unlockCondition: "在习惯中断后重新开始而不是彻底放弃。", icon: "RefreshCcw", tags: ["习惯", "韧性", "重启"], aiTone: "鼓励重启" },
+  { id: "habit_04", title: "用一个习惯替换坏习惯", category: "习惯篇", rarity: "史诗", description: "你没有硬戒，而是用一个更好的行为替代了旧模式。", unlockCondition: "用一个积极的小习惯替代一个消极习惯。", icon: "Replace", tags: ["习惯", "成长", "替代"], aiTone: "肯定策略" },
+  { id: "habit_05", title: "追踪习惯满一个月", category: "习惯篇", rarity: "史诗", description: "你用一个月的时间证明了自己可以稳定执行一个行为模式。", unlockCondition: "连续一个月坚持一个好习惯。", icon: "CalendarCheck", tags: ["习惯", "坚持", "成果"], aiTone: "骄傲肯定" },
+  { id: "habit_06", title: "为习惯创造了仪式感", category: "习惯篇", rarity: "普通", description: "你给每日习惯增加了一个小小的启动动作，让它更容易被执行。", unlockCondition: "为某个习惯设计一个简单的触发仪式。", icon: "Sparkles", tags: ["习惯", "设计", "自律"], aiTone: "鼓励创造" },
+  { id: "habit_07", title: "识别并中断了坏习惯一次", category: "习惯篇", rarity: "稀有", description: "你成功识别出一个自动运行的负面行为模式，并手动中断了它。", unlockCondition: "在无意识陷入坏习惯时主动叫停。", icon: "StopCircle", tags: ["习惯", "觉察", "成长"], aiTone: "肯定觉察" },
+  { id: "habit_08", title: "不需要打卡也能坚持", category: "习惯篇", rarity: "传说", description: "你的习惯已经内化为日常，不再需要外部记录也能自动执行。", unlockCondition: "某个习惯已经不需要刻意记录也能自然完成。", icon: "CheckCircle", tags: ["习惯", "内化", "成熟"], aiTone: "沉稳骄傲" },
+  // === 低谷篇 (8) ===
+  { id: "low_01", title: "在低谷里完成了基本操作", category: "低谷篇", rarity: "稀有", description: "你处于低能量状态，但仍然执行了当天的基础行动。", unlockCondition: "在心情很差或精力很低时仍然完成了刷牙洗脸等基本事项。", icon: "Minimize2", tags: ["低谷", "韧性", "生活"], aiTone: "温柔、肯定基本行动" },
+  { id: "low_02", title: "低谷中没有苛责自己", category: "低谷篇", rarity: "稀有", description: "你在状态不好的时候没有对自己落井下石。", unlockCondition: "在表现不佳时选择理解而非责备自己。", icon: "Shield", tags: ["低谷", "自愈", "宽容"], aiTone: "温柔自悯" },
+  { id: "low_03", title: "允许今天进度归零", category: "低谷篇", rarity: "普通", description: "你承认今天不适宜推进任何任务，并允许自己原地停留。", unlockCondition: "在感觉糟糕时主动取消所有计划，允许自己休息。", icon: "PauseCircle", tags: ["低谷", "休息", "接纳"], aiTone: "温柔接纳" },
+  { id: "low_04", title: "从低谷向外发出一个信号", category: "低谷篇", rarity: "稀有", description: "你在低落中没有彻底封闭自己，而是对外发出了一个微弱的信号。", unlockCondition: "在情绪低落时主动联系了一个信任的人。", icon: "MessageCircle", tags: ["低谷", "社交", "求助"], aiTone: "温暖鼓励" },
+  { id: "low_05", title: "低谷中完成了一件小事", category: "低谷篇", rarity: "普通", description: "你从动弹不得的状态里挣扎着做完了一件事，哪怕很小。", unlockCondition: "在什么也不想做的时候仍然完成了一件最小的事。", icon: "CheckCircle", tags: ["低谷", "行动", "韧性"], aiTone: "温柔、肯定小行动" },
+  { id: "low_06", title: "低谷没有变成低谷期", category: "低谷篇", rarity: "史诗", description: "你在陷入低谷后及时触底回升，没有让它延展成漫长的低谷期。", unlockCondition: "在低谷后主动采取行动让自己恢复过来。", icon: "TrendingUp", tags: ["低谷", "恢复", "韧性"], aiTone: "温柔、肯定恢复力" },
+  { id: "low_07", title: "记录了一段低谷感受", category: "低谷篇", rarity: "普通", description: "你没有压抑低谷中的感受，而是选择了观察和记录。", unlockCondition: "写下低谷时期的真实感受和想法。", icon: "Feather", tags: ["低谷", "记录", "表达"], aiTone: "安静陪伴" },
+  { id: "low_08", title: "今天没有更糟", category: "低谷篇", rarity: "普通", description: "在艰难的日子里，没有变得更糟已经是一种胜利。", unlockCondition: "在低谷中维持了现状，没有让情况恶化。", icon: "Shield", tags: ["低谷", "稳定", "生存"], aiTone: "温柔、肯定稳定" },
+  // === 小确幸篇 (8) ===
+  { id: "joy_01", title: "捕捉到一个微小美好", category: "小确幸篇", rarity: "普通", description: "你注意到了生活中一个容易被忽略的美好瞬间。", unlockCondition: "主动观察并记住一个让自己感到温暖的瞬间。", icon: "Sparkles", tags: ["小确幸", "觉察", "美好"], aiTone: "轻松温暖" },
+  { id: "joy_02", title: "一日不花一分钱", category: "小确幸篇", rarity: "普通", description: "你没有进行任何消费，但这一天仍然过得不错。", unlockCondition: "度过一个没有消费但仍然心情不错的日子。", icon: "Smile", tags: ["小确幸", "简单", "满足"], aiTone: "轻松温暖" },
+  { id: "joy_03", title: "闻到了喜欢的味道", category: "小确幸篇", rarity: "普通", description: "一阵熟悉或好闻的气味让你在路上停了一秒。", unlockCondition: "注意到一个让自己心情变好的气味或声音。", icon: "Wind", tags: ["小确幸", "感官", "治愈"], aiTone: "轻松治愈" },
+  { id: "joy_04", title: "收到意外的小善意", category: "小确幸篇", rarity: "稀有", description: "你从别人那里收到了一个意外的微笑、问候或帮助。", unlockCondition: "记录一个来自他人的微小善意。", icon: "Gift", tags: ["小确幸", "善意", "温暖"], aiTone: "温暖感动" },
+  { id: "joy_05", title: "和动物或植物互动了", category: "小确幸篇", rarity: "普通", description: "你停下脚步，和一只动物或一棵植物建立了一次短暂连接。", unlockCondition: "花时间观察或亲近一只动物或一株植物。", icon: "PawPrint", tags: ["小确幸", "自然", "治愈"], aiTone: "轻松治愈" },
+  { id: "joy_06", title: "被一段文字击中", category: "小确幸篇", rarity: "稀有", description: "你读到一段话，觉得它像在替你此刻的心情发声。", unlockCondition: "记录下一段今天触动自己的文字。", icon: "Quote", tags: ["小确幸", "阅读", "共鸣"], aiTone: "温暖治愈" },
+  { id: "joy_07", title: "今天晚饭吃得很好", category: "小确幸篇", rarity: "普通", description: "不是什么大餐，但每一口都让人感到满足。", unlockCondition: "认真享受一顿让自己感到满足的饭菜。", icon: "UtensilsCrossed", tags: ["小确幸", "美食", "治愈"], aiTone: "轻松温暖" },
+  { id: "joy_08", title: "洗澡时灵感突然出现", category: "小确幸篇", rarity: "普通", description: "你在最放松的状态下，收到了一个来自潜意识的消息。", unlockCondition: "在洗澡或散步时突然想到一个好的点子或答案。", icon: "Lightbulb", tags: ["小确幸", "灵感", "创造"], aiTone: "轻松鼓励" },
+
   // === 恋爱篇 (12) ===
   { id: "love_01", title: "第一次主动发消息", category: "恋爱篇", rarity: "普通", description: "主动开启一次对话，不再只是等待别人靠近。", unlockCondition: "主动给在意的人发一条消息", icon: "message-circle", tags: ["恋爱", "主动", "勇气"], aiTone: "温柔地鼓励主动" },
   { id: "love_02", title: "主动表达喜欢", category: "恋爱篇", rarity: "史诗", description: "认真表达自己的心意，不让遗憾替你开口。", unlockCondition: "向喜欢的人坦诚自己的感受", icon: "heart", tags: ["恋爱", "勇气", "真诚"], aiTone: "郑重而温柔" },
@@ -14,7 +62,6 @@ export const achievements: Achievement[] = [
   { id: "love_10", title: "删掉了前任的联系方式", category: "恋爱篇", rarity: "普通", description: "不是绝情，是终于决定往前走了。", unlockCondition: "为了自己删除不再需要的联系", icon: "trash-2", tags: ["恋爱", "告别"], aiTone: "释然地鼓励向前" },
   { id: "love_11", title: "第一次约会主动安排了行程", category: "恋爱篇", rarity: "普通", description: "不再是等着被安排，而是主动为两个人创造美好回忆。", unlockCondition: "主动计划和安排一次约会", icon: "map", tags: ["恋爱", "主动"], aiTone: "轻松而肯定" },
   { id: "love_12", title: "和喜欢的人聊到深夜", category: "恋爱篇", rarity: "普通", description: "有说不完的话本身就是一种很美好的信号。", unlockCondition: "和喜欢的人进行一次深入的长聊", icon: "moon", tags: ["恋爱", "分享"], aiTone: "温暖而甜蜜" },
-
   // === 生活篇 (12) ===
   { id: "life_01", title: "走出宿舍晒太阳", category: "生活篇", rarity: "普通", description: "离开房间，和真实世界重新连接。", unlockCondition: "今天主动出门晒太阳或散步至少 10 分钟", icon: "sun", tags: ["生活", "户外", "恢复能量"], aiTone: "治愈轻松" },
   { id: "life_02", title: "今天没有熬夜", category: "生活篇", rarity: "普通", description: "提前结束一天，把身体放在第一位。", unlockCondition: "在凌晨 12 点前放下手机睡觉", icon: "moon", tags: ["生活", "健康", "自律"], aiTone: "温和地肯定自律" },
@@ -28,7 +75,6 @@ export const achievements: Achievement[] = [
   { id: "life_10", title: "给自己的生活换了新的布置", category: "生活篇", rarity: "普通", description: "换一种布置，换一种心情。生活需要新鲜感。", unlockCondition: "重新布置或装饰自己的空间", icon: "palette", tags: ["生活", "创意"], aiTone: "轻松可爱" },
   { id: "life_11", title: "自己做了一个手工或DIY", category: "生活篇", rarity: "普通", description: "亲手做出来的东西，有一种特别的温度。", unlockCondition: "完成一次手工或DIY作品", icon: "brush", tags: ["生活", "创意"], aiTone: "治愈而温暖" },
   { id: "life_12", title: "在自然中待了一整个下午", category: "生活篇", rarity: "普通", description: "什么都不做，只是在自然里待着。这是最好的充电方式。", unlockCondition: "花一个下午在户外享受自然", icon: "tree-deciduous", tags: ["生活", "治愈", "自然"], aiTone: "宁静治愈" },
-
   // === 成长篇 (12) ===
   { id: "grow_01", title: "拒绝无效内耗", category: "成长篇", rarity: "稀有", description: "发现自己想太多时，及时按下暂停键。", unlockCondition: "意识到自己在过度思考并主动停止", icon: "brain", tags: ["成长", "自愈", "觉察"], aiTone: "觉察而温和" },
   { id: "grow_02", title: "完成了一件拖了很久的事", category: "成长篇", rarity: "稀有", description: "把一直挂在心里的事情真正做完。", unlockCondition: "完成那件你一直在拖延的任务", icon: "check-circle", tags: ["成长", "执行力"], aiTone: "肯定执行力" },
@@ -42,7 +88,6 @@ export const achievements: Achievement[] = [
   { id: "grow_10", title: "主动寻求了帮助", category: "成长篇", rarity: "普通", description: "承认自己需要帮助，是一种更成熟的独立。", unlockCondition: "在自己做不到时主动向他人求助", icon: "hand", tags: ["成长", "沟通"], aiTone: "温柔肯定" },
   { id: "grow_11", title: "从失败中总结了经验", category: "成长篇", rarity: "稀有", description: "失败不是终点，是把经验装进口袋继续上路。", unlockCondition: "从一次失败中认真总结经验教训", icon: "refresh-cw", tags: ["成长", "韧性"], aiTone: "鼓励韧性" },
   { id: "grow_12", title: "完成了 30 天自我挑战", category: "成长篇", rarity: "史诗", description: "30 天的坚持，你在用行动证明给自己看。", unlockCondition: "坚持一个自我挑战项目 30 天", icon: "zap", tags: ["成长", "坚持", "自律"], aiTone: "骄傲而温暖" },
-
   // === 自愈篇 (12) ===
   { id: "heal_01", title: "一个人吃顿好的", category: "自愈篇", rarity: "稀有", description: "不等别人，自己认真照顾自己。", unlockCondition: "独自去一家喜欢的餐厅好好吃一顿", icon: "utensils-crossed", tags: ["自愈", "自我关怀"], aiTone: "温暖治愈" },
   { id: "heal_02", title: "给自己买一束花", category: "自愈篇", rarity: "稀有", description: "生活不一定盛大，但可以被自己点亮。", unlockCondition: "不为任何人，只是为自己买一件美好的东西", icon: "flower-2", tags: ["自愈", "仪式感"], aiTone: "治愈而温暖" },
@@ -56,7 +101,6 @@ export const achievements: Achievement[] = [
   { id: "heal_10", title: "听了一整张喜欢的专辑", category: "自愈篇", rarity: "普通", description: "让音乐包裹自己，是最好的自我疗愈之一。", unlockCondition: "完整地听完一张喜欢的音乐专辑", icon: "music", tags: ["自愈", "治愈"], aiTone: "轻松治愈" },
   { id: "heal_11", title: "写下了自己的情绪", category: "自愈篇", rarity: "普通", description: "把说不出口的情绪写下来，是一种深层的整理。", unlockCondition: "认真记录和梳理自己的情绪", icon: "pen-tool", tags: ["自愈", "表达"], aiTone: "安静而治愈" },
   { id: "heal_12", title: "被一首诗或一段话治愈了", category: "自愈篇", rarity: "普通", description: "文字的力量有时候比拥抱更温柔。", unlockCondition: "记录下一段真正触动你的文字", icon: "quote", tags: ["自愈", "治愈"], aiTone: "安静治愈" },
-
   // === 社交篇 (10) ===
   { id: "soc_01", title: "和朋友认真聊一次", category: "社交篇", rarity: "普通", description: "不是敷衍寒暄，而是真正交流一次。", unlockCondition: "和好友进行一次有深度的对话", icon: "message-square", tags: ["社交", "深度交流"], aiTone: "温暖肯定" },
   { id: "soc_02", title: "主动认识了一个新朋友", category: "社交篇", rarity: "稀有", description: "在不熟悉的环境里主动迈出第一步，比想象中需要更多勇气。", unlockCondition: "主动结识一个新朋友", icon: "user-plus", tags: ["社交", "勇气"], aiTone: "鼓励社交" },
@@ -68,7 +112,6 @@ export const achievements: Achievement[] = [
   { id: "soc_08", title: "帮助了一个陌生人", category: "社交篇", rarity: "稀有", description: "对陌生人伸出援手，是人性中最温暖的光。", unlockCondition: "主动帮助一个不认识的陌生人", icon: "hand", tags: ["社交", "善意"], aiTone: "温暖而崇高" },
   { id: "soc_09", title: "维持了一段异地的友谊", category: "社交篇", rarity: "稀有", description: "距离不会稀释真正的友谊，但经营它需要你的用心。", unlockCondition: "和异地好友保持定期联系和分享", icon: "globe", tags: ["社交", "维系"], aiTone: "温暖肯定" },
   { id: "soc_10", title: "在社交中自然地做自己", category: "社交篇", rarity: "史诗", description: "不用迎合、不用表演，真实本身就是最好的社交状态。", unlockCondition: "在社交场合完全做自己而不感到压力", icon: "smile", tags: ["社交", "自信"], aiTone: "温柔肯定" },
-
   // === 学习篇 (12) ===
   { id: "study_01", title: "认真复习了一门课", category: "学习篇", rarity: "普通", description: "不是临时抱佛脚，而是真正花时间去理解。", unlockCondition: "花至少 2 小时认真复习课程内容", icon: "book-open", tags: ["学习", "专注"], aiTone: "认真鼓励" },
   { id: "study_02", title: "学会了新技能", category: "学习篇", rarity: "稀有", description: "主动学习新技能，是你和这个世界保持连接的方式。", unlockCondition: "学会一项新的实用技能", icon: "lightbulb", tags: ["学习", "成长"], aiTone: "鼓励成长" },
@@ -82,7 +125,6 @@ export const achievements: Achievement[] = [
   { id: "study_10", title: "向老师请教了一个问题", category: "学习篇", rarity: "普通", description: "敢于提问，是最好的学习态度。", unlockCondition: "主动向老师提问或请教", icon: "help-circle", tags: ["学习", "主动"], aiTone: "鼓励主动学习" },
   { id: "study_11", title: "看完了一门在线课程", category: "学习篇", rarity: "稀有", description: "在线课程很难坚持到底，你做到了。", unlockCondition: "完整看完一门在线课程", icon: "monitor", tags: ["学习", "自律"], aiTone: "肯定坚持" },
   { id: "study_12", title: "用学到的知识解决了一个实际问题", category: "学习篇", rarity: "稀有", description: "学以致用，是学习最有成就感的一刻。", unlockCondition: "用学到的知识解决生活中的实际问题", icon: "wrench", tags: ["学习", "应用"], aiTone: "鼓励应用" },
-
   // === 勇气篇 (12) ===
   { id: "brave_01", title: "第一次上台发言", category: "勇气篇", rarity: "稀有", description: "站在人群面前说出自己想说的话，这本身就是一件值得骄傲的事。", unlockCondition: "在公众场合进行第一次正式发言", icon: "mic", tags: ["勇气", "表达"], aiTone: "鼓励勇气" },
   { id: "brave_02", title: "说出了不敢说的话", category: "勇气篇", rarity: "史诗", description: "有些话在心里藏了很久，今天你决定不再沉默。", unlockCondition: "把一直藏在心里的话说出口", icon: "message-circle", tags: ["勇气", "真诚"], aiTone: "郑重而温暖" },
@@ -96,7 +138,6 @@ export const achievements: Achievement[] = [
   { id: "brave_10", title: "为自己设定了底线", category: "勇气篇", rarity: "稀有", description: "知道什么不能妥协，是一种成熟的勇气。", unlockCondition: "明确告诉别人自己的底线和原则", icon: "shield", tags: ["勇气", "边界"], aiTone: "坚定肯定" },
   { id: "brave_11", title: "面对了恐惧的事情", category: "勇气篇", rarity: "史诗", description: "恐惧没有消失，但你不再是它的囚徒。", unlockCondition: "直面一件一直让你害怕的事情", icon: "eye", tags: ["勇气", "面对"], aiTone: "鼓励面对" },
   { id: "brave_12", title: "对一个重要的人说了真心话", category: "勇气篇", rarity: "传说", description: "在重要的关系里说出真心话，是最需要勇气的行动之一。", unlockCondition: "对生命中重要的人坦诚自己的真实感受", icon: "heart", tags: ["勇气", "真诚"], aiTone: "郑重而温暖" },
-
   // === 健康篇 (10) ===
   { id: "health_01", title: "坚持运动了一周", category: "健康篇", rarity: "普通", description: "身体在慢慢变好，而你正在参与这个过程。", unlockCondition: "连续一周每天运动至少 20 分钟", icon: "activity", tags: ["健康", "自律"], aiTone: "鼓励自律" },
   { id: "health_02", title: "喝了八杯水", category: "健康篇", rarity: "普通", description: "最简单的习惯，但坚持做就是对自己最好的照顾。", unlockCondition: "今天喝够了 8 杯水", icon: "cup-soda", tags: ["健康", "习惯"], aiTone: "轻松肯定" },
@@ -108,7 +149,6 @@ export const achievements: Achievement[] = [
   { id: "health_08", title: "减少了屏幕使用时间", category: "健康篇", rarity: "稀有", description: "放下屏幕，把注意力还给真实世界。", unlockCondition: "今天屏幕使用时间比平时减少 2 小时", icon: "smartphone", tags: ["健康", "自律"], aiTone: "温和鼓励" },
   { id: "health_09", title: "吃了健康的早餐", category: "健康篇", rarity: "普通", description: "好好吃早餐，是一天对自己最好的开场。", unlockCondition: "今天认真吃了一顿营养早餐", icon: "sunrise", tags: ["健康", "习惯"], aiTone: "轻松温暖" },
   { id: "health_10", title: "散步代替了坐车", category: "健康篇", rarity: "普通", description: "多走一段路，多呼吸一口新鲜空气。", unlockCondition: "用步行代替一次短途乘车", icon: "walk", tags: ["健康", "环保"], aiTone: "轻松肯定" },
-
   // === 亲情篇 (10) ===
   { id: "fam_01", title: "给父母打了通电话", category: "亲情篇", rarity: "普通", description: "一通电话，对父母来说可能是一整天的好心情。", unlockCondition: "主动给家人打一通电话聊聊近况", icon: "phone", tags: ["亲情", "关心"], aiTone: "温暖治愈" },
   { id: "fam_02", title: "和父母说了我爱你", category: "亲情篇", rarity: "史诗", description: "中国人不常说爱，但你说出来了。这比什么都珍贵。", unlockCondition: "对父母直接说出我爱你", icon: "heart", tags: ["亲情", "勇气"], aiTone: "温暖而郑重" },
@@ -120,7 +160,6 @@ export const achievements: Achievement[] = [
   { id: "fam_08", title: "和家人拍了全家福", category: "亲情篇", rarity: "稀有", description: "一家人在一起的时刻，最值得被定格。", unlockCondition: "组织或参与一张全家福的拍摄", icon: "camera", tags: ["亲情", "记录"], aiTone: "温暖感人" },
   { id: "fam_09", title: "原谅了父母的某个不完美", category: "亲情篇", rarity: "史诗", description: "父母也是第一次当父母，原谅不完美是一种深刻的成长。", unlockCondition: "理解和接纳父母的一个缺点", icon: "heart", tags: ["亲情", "和解", "成长"], aiTone: "温柔深刻" },
   { id: "fam_10", title: "和兄弟姐妹好好聊了一次", category: "亲情篇", rarity: "普通", description: "从小一起长大的人，值得一次认真的对话。", unlockCondition: "和手足进行一次非表面的交流", icon: "message-square", tags: ["亲情", "沟通"], aiTone: "温暖治愈" },
-
   // === 校园篇 (10) ===
   { id: "campus_01", title: "参加了社团活动", category: "校园篇", rarity: "普通", description: "大学生活不只在上课中度过。", unlockCondition: "积极参与一次社团或组织活动", icon: "users", tags: ["校园", "社交"], aiTone: "温暖鼓励" },
   { id: "campus_02", title: "在课上做了精彩的展示", category: "校园篇", rarity: "稀有", description: "站在所有人面前展示自己的成果，你做得很棒。", unlockCondition: "完成一次让老师同学印象深刻的课堂展示", icon: "presentation", tags: ["校园", "表达", "勇气"], aiTone: "肯定表现" },
@@ -133,7 +172,6 @@ export const achievements: Achievement[] = [
   { id: "campus_09", title: "策划了一场校园活动", category: "校园篇", rarity: "稀有", description: "从策划到落地，你证明了自己的组织能力。", unlockCondition: "独立或合作策划一场活动并成功举办", icon: "calendar-check", tags: ["校园", "组织"], aiTone: "肯定能力" },
   { id: "campus_10", title: "认真完成了毕业设计", category: "校园篇", rarity: "传说", description: "大学的最后一份答卷，你用心完成了。", unlockCondition: "顺利完成自己的毕业设计或毕业论文", icon: "graduation-cap", tags: ["校园", "成果", "终结"], aiTone: "骄傲而感慨" },
 ];
-
 export const categories: { label: string; value: string }[] = [
   { label: "全部", value: "all" },
   { label: "恋爱篇", value: "恋爱篇" },
@@ -147,8 +185,14 @@ export const categories: { label: string; value: string }[] = [
   { label: "亲情篇", value: "亲情篇" },
   { label: "校园篇", value: "校园篇" },
   { label: "其他", value: "其他" },
+  { label: "情绪篇", value: "情绪篇" },
+  { label: "整理篇", value: "整理篇" },
+  { label: "习惯篇", value: "习惯篇" },
+  { label: "低谷篇", value: "低谷篇" },
+  { label: "小确幸篇", value: "小确幸篇" },
+  { label: "隐藏成就", value: "隐藏成就" },
+  { label: "高难成就", value: "高难成就" },
 ];
-
 export function getRarityColor(rarity: string): string {
   switch (rarity) {
     case "普通": return "common";
@@ -158,7 +202,6 @@ export function getRarityColor(rarity: string): string {
     default: return "common";
   }
 }
-
 export function getRarityBg(rarity: string): string {
   switch (rarity) {
     case "普通": return "bg-sky-50/80 text-sky-600";
@@ -169,7 +212,6 @@ export function getRarityBg(rarity: string): string {
     default: return "bg-gray-50/80 text-gray-600";
   }
 }
-
 export function getCategoryLabel(category: string): string {
   return categories.find(c => c.value === category)?.label || category;
 }
